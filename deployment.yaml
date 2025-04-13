@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment # Create the Kubernetes Deployment
+metadata:
+  name: sit323-2025-prac6p-deployment # Name of the Deployment
+spec:
+  replicas: 2 # Run 2 replicas of the application
+  selector:
+    matchLabels:
+      app: sit323-2025-prac6p # Match the pods with this label
+  template:
+    metadata:
+      labels:
+        app: sit323-2025-prac6p # Label for the pods created
+    spec:
+      containers:
+        - name: sit323-2025-prac6p # Name of the container
+          image: sit323-2025-prac6p:v1 # Docker image to run
+          ports:
+            - containerPort: 3040 # The application runs on port 3040
+            
